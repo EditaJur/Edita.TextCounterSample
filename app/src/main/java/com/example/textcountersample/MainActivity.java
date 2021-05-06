@@ -15,6 +15,7 @@ import static com.example.textcountersample.utils.ElementsCalculator.getCharsCou
 public class MainActivity extends AppCompatActivity {
 
     Spinner ddSelection;
+    private String regex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
         EditText edUserInput = findViewById(R.id.edUserInput);
         TextView tvOutput = findViewById(R.id.tvOutput);
         String userInputText = edUserInput.getText().toString();
+        String words[]=userInputText.split( "\\s");
 
         String selection = this.ddSelection.getSelectedItem().toString();
         if(selection.equalsIgnoreCase("Chars")){
             int count = getCharsCount(userInputText);
             tvOutput.setText(String.valueOf(count));
+        }
+
+        else{
+            tvOutput.setText(String.valueOf(words.length));
         }
     }
 }
