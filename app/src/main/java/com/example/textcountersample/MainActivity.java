@@ -23,14 +23,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.ddSelection = (Spinner) findViewById(R.id.ddSelection);
-        ArrayList<String> selectionOptionsList = new ArrayList<>();
+        /*ArrayList<String> selectionOptionsList = new ArrayList<>();
         selectionOptionsList.add("Words");
         selectionOptionsList.add("Chars");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, selectionOptionsList);
+         */
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.Mergaiciu_vardai, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.ddSelection.setAdapter(arrayAdapter);
     }
-
     public void btnCalculateOnClick(View view) {
         EditText edUserInput = findViewById(R.id.edUserInput);
         TextView tvOutput = findViewById(R.id.tvOutput);
